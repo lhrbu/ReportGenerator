@@ -1,0 +1,19 @@
+<Grid x:Class="ReportGenerator.Client.Wpf.Controls.FormTextItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ReportGenerator.Client.Wpf.Controls"
+    xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+    mc:Ignorable="d"
+    Height="32">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="2*"/>
+    </Grid.ColumnDefinitions>
+    <pu:TagControl Width="80" Grid.Column="0">
+        <pu:TagItem Content="Label" Background="#6AC2FF"
+            Removable="false"/>
+    </pu:TagControl>
+    <TextBox Text="Haha" Grid.Column="1"/>
+</Grid>

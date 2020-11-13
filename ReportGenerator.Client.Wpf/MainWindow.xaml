@@ -1,0 +1,22 @@
+﻿<pu:WindowX x:Class="ReportGenerator.Client.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReportGenerator.Client.Wpf"
+        xmlns:controls="clr-namespace:ReportGenerator.Client.Wpf.Controls"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="600" HorizontalScrollBarVisibility="Auto">
+        <TabControl Margin="50,0,50,25"
+            pu:TabControlHelper.ItemCornerRadius="8 8 0 0"
+            pu:TabControlHelper.SelectedForeground="Blue">
+            <TabItem Header="Meta data" DataContext="{Binding ReportMetadata}">
+                <controls:FormTextItem />
+            </TabItem>
+            <TabItem Header="Option2" />
+            <TabItem Header="Option3" />
+        </TabControl>
+    </ScrollViewer>
+</pu:WindowX>
