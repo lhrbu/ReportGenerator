@@ -4,9 +4,9 @@ namespace ReportGenerator.Shared.Models
 {
     public class ReportMetadata
     {
-        public string? PDMNo {get;set;}
-        public string? ReportNo {get;set;}
+        public string? PDMNo { get; set; }
+        public string? TestNo {get;set;}
         public string? Name{get;set;}
-        public DateTimeOffset PublishedDate { get; set; } = DateTimeOffset.Now;
+        public DateTime PublishedDate { get; set; } = DateTime.Now;
     }
 }

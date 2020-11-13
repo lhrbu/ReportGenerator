@@ -1,0 +1,25 @@
+﻿<Grid x:Class="ReportGenerator.Client.Wpf.Controls.FormDatePickerItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReportGenerator.Client.Wpf.Controls"
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+             mc:Ignorable="d" d:DesignWidth="200"
+             Margin="6 8">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="3*"/>
+    </Grid.ColumnDefinitions>
+    <Label Grid.Column="0" Margin="0 0 12 0" VerticalAlignment="Center"
+                  Style="{StaticResource PropertyLabelBackground}" Foreground="White"
+           Padding="6" Height="32"
+                  Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:FormDatePickerItem},Path=Header}"  
+                  >
+        <Label.Effect>
+            <DropShadowEffect ShadowDepth="-4" BlurRadius="8" Color="LightGray"/>
+        </Label.Effect>
+    </Label>
+    <pu:DateTimePicker Grid.Column="1"
+        SelectedDateTime="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:FormDatePickerItem},Path=SelectedDateTime}" />
+</Grid>

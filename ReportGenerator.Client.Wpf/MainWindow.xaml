@@ -7,16 +7,85 @@
         xmlns:controls="clr-namespace:ReportGenerator.Client.Wpf.Controls"
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="600" HorizontalScrollBarVisibility="Auto">
-        <TabControl Margin="50,0,50,25"
-            pu:TabControlHelper.ItemCornerRadius="8 8 0 0"
-            pu:TabControlHelper.SelectedForeground="Blue">
-            <TabItem Header="Meta data" DataContext="{Binding ReportMetadata}">
-                <controls:FormTextItem />
-            </TabItem>
-            <TabItem Header="Option2" />
-            <TabItem Header="Option3" />
-        </TabControl>
-    </ScrollViewer>
+        Title="MainWindow" Height="450" Width="800"
+            Background="#fcfcfc">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 16 0 0">
+            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+                    Content="Generate" Height="32" Width="96" Margin="16 0 8 0"
+                    Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Background="Green"
+                    pu:ButtonHelper.HoverBrush="#185F18"
+                    Command="{Binding GenerateCommand}"
+                    />
+            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+                    Content="Export" Height="32" Width="96" Margin="8 0"
+                    Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Background="#C81E00FF"
+                    pu:ButtonHelper.HoverBrush="#1E00FF"
+                    Command="{Binding ExportCommand}"
+                    />
+            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+                    Content="Import" Height="32" Width="96" Margin="8 0"
+                    Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Background="#C8424242"
+                    pu:ButtonHelper.HoverBrush="#424242"
+                    Command="{Binding ImportCommand}"
+                    
+                    />
+        </StackPanel>
+        <Line Stretch="Fill" Stroke="LightGray" Margin="0 16 0 0" X2="1"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
+            <TabControl Margin="60,20,60,20"
+                    pu:TabControlHelper.ItemHeight="32"
+                    pu:TabControlHelper.ItemCornerRadius="8 8 0 0"
+                    pu:TabControlHelper.SelectedForeground="Blue">
+                <TabItem Header="Meta data" DataContext="{Binding ReportMetadata}">
+                    <GroupBox pu:GroupBoxHelper.CornerRadius="6"
+                          pu:GroupBoxHelper.ShadowColor="Blue"
+                          Margin="20 40 20 0">
+                        <StackPanel>
+                            <controls:FormTextItem Header="PDM No" Text="{Binding PDMNo,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Test No" Text="{Binding TestNo,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Report Name" Text="{Binding Name,Mode=TwoWay}"/>
+                            <controls:FormDatePickerItem Header="Published Time" SelectedDateTime="{Binding PublishedDate,Mode=TwoWay}" />
+                        </StackPanel>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Header="Application" DataContext="{Binding Application}">
+                    <GroupBox pu:GroupBoxHelper.CornerRadius="6"
+                          pu:GroupBoxHelper.ShadowColor="Blue"
+                          Margin="20 40 20 0">
+                        <StackPanel>
+                            <controls:FormTextItem Header="Applicant" Text="{Binding ApplicantName,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Sample Phase" Text="{Binding SamplePhase,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Test Reason" Text="{Binding TestReason,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="OEM" Text="{Binding OEMName,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Project" Text="{Binding ProjectName,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Vehicle Type" Text="{Binding VehicleType,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="OEM Part No" Text="{Binding OEMPartNoSummary,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Hella Part No" Text="{Binding InternalPartNoSummary,Mode=TwoWay}"/>
+                        </StackPanel>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Header="Authorization" DataContext="{Binding Authorization}">
+                    <GroupBox pu:GroupBoxHelper.CornerRadius="6"
+                          pu:GroupBoxHelper.ShadowColor="Blue"
+                          Margin="20 40 20 0">
+                        <StackPanel>
+                            <controls:FormTextItem Header="Author" Text="{Binding Author,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Author Depart." Text="{Binding AuthorDepartment,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Reviewer" Text="{Binding Reviewer,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Reviewer Depart." Text="{Binding ReviewerDepartment,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Authorizor" Text="{Binding Authorizor,Mode=TwoWay}"/>
+                            <controls:FormTextItem Header="Authorizor Depart." Text="{Binding AuthorizorDepartment,Mode=TwoWay}"/>
+                        </StackPanel>
+                    </GroupBox>
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
+    </StackPanel>
 </pu:WindowX>

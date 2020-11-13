@@ -1,6 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <None Remove="Template.docx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Template.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ReportGenerator.Shared\ReportGenerator.Shared.csproj" />
   </ItemGroup>
 

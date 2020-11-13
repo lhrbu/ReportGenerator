@@ -33,8 +33,8 @@ namespace ReportGenerator.Client.Wpf
         protected override void OnStartup(StartupEventArgs e)
         {
             try{
-            base.OnStartup(e);
-            this.OnStartupProxy<MainWindow>();
+                base.OnStartup(e);
+                this.OnStartupProxy<MainWindow>();
             }catch(Exception err)
             {
                 MessageBox.Show(err.ToString());

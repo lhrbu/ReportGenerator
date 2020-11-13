@@ -8,7 +8,7 @@ namespace ReportGenerator.Shared.Models
         public string? AuthorDepartment { get; set; }
         public string? Reviewer {get;set;}
         public string? ReviewerDepartment { get; set; }
-        public string? AuthorizedSignatory {get;set;}
-        public string? AuthorizedDepartment { get; set; }
+        public string? Authorizor {get;set;}
+        public string? AuthorizorDepartment { get; set; }
     }
 }
