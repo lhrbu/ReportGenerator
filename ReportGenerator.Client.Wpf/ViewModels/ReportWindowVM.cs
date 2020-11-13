@@ -17,6 +17,8 @@ namespace ReportGenerator.Client.Wpf.ViewModels
     public class ReportWindowVM:BindableBase
     {
         private readonly ReportGenerateService _reportGenerateService;
+        private readonly JsonSerializerOptions _jsonSerializerOptions =
+            new() { IgnoreNullValues = true,WriteIndented=true };
         public ReportWindowVM(ReportGenerateService reportGenerateService)
         { 
             _reportGenerateService = reportGenerateService;
@@ -87,7 +89,7 @@ namespace ReportGenerator.Client.Wpf.ViewModels
                         Authorization = Authorization
                     };
                     using Stream stream = File.OpenWrite(exportPath);
-                    await JsonSerializer.SerializeAsync(stream, report);
+                    await JsonSerializer.SerializeAsync(stream, report,_jsonSerializerOptions);
                 }finally
                 {
                     handle.Close();
