@@ -46,8 +46,8 @@ namespace ReportGenerator.Client.Wpf.ViewModels
             saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
             saveFileDialog.DefaultExt = ".docx";
             saveFileDialog.ShowDialog();
-            string? reportPath = saveFileDialog.FileName;
-            if(reportPath is not null)
+            string reportPath = saveFileDialog.FileName;
+            if(!string.IsNullOrEmpty(reportPath))
             {
                 var handle = PendingBox.Show("In Generating", "Processing");
                 try
@@ -76,8 +76,8 @@ namespace ReportGenerator.Client.Wpf.ViewModels
             saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
             saveFileDialog.DefaultExt = ".json";
             saveFileDialog.ShowDialog();
-            string? exportPath = saveFileDialog.FileName;
-            if (exportPath is not null)
+            string exportPath = saveFileDialog.FileName;
+            if (!string.IsNullOrEmpty(exportPath))
             {
                 var handle = PendingBox.Show("In Exporting as Json", "Processing");
                 try
@@ -105,8 +105,8 @@ namespace ReportGenerator.Client.Wpf.ViewModels
             OpenFileDialog openFileDialog = new();
             openFileDialog.InitialDirectory = Environment.CurrentDirectory;
             openFileDialog.ShowDialog();
-            string? importFile = openFileDialog.FileName;
-            if(importFile is not null)
+            string importFile = openFileDialog.FileName;
+            if(!string.IsNullOrEmpty(importFile))
             {
                 var handle = PendingBox.Show("In Importing Json", "Processing");
                 try

@@ -7,11 +7,12 @@
         xmlns:controls="clr-namespace:ReportGenerator.Client.Wpf.Controls"
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-            Background="#fcfcfc">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0 16 0 0">
-            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+        Title="Report Generator" Height="450" Width="800"
+            >
+    <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 16 0 0">
+                <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
                     Content="Generate" Height="32" Width="96" Margin="16 0 8 0"
                     Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
                     FontFamily="{StaticResource FontAwesome}"
@@ -19,7 +20,7 @@
                     pu:ButtonHelper.HoverBrush="#185F18"
                     Command="{Binding GenerateCommand}"
                     />
-            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+                <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
                     Content="Export" Height="32" Width="96" Margin="8 0"
                     Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
                     FontFamily="{StaticResource FontAwesome}"
@@ -27,7 +28,7 @@
                     pu:ButtonHelper.HoverBrush="#1E00FF"
                     Command="{Binding ExportCommand}"
                     />
-            <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
+                <Button pu:ButtonHelper.ButtonStyle="Standard" pu:ButtonHelper.CornerRadius="2"
                     Content="Import" Height="32" Width="96" Margin="8 0"
                     Foreground="White" pu:ButtonHelper.ClickStyle="Sink"
                     FontFamily="{StaticResource FontAwesome}"
@@ -36,9 +37,9 @@
                     Command="{Binding ImportCommand}"
                     
                     />
-        </StackPanel>
-        <Line Stretch="Fill" Stroke="LightGray" Margin="0 16 0 0" X2="1"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
+            </StackPanel>
+            <Line Stretch="Fill" Stroke="LightGray" Margin="0 16 0 0" X2="1"/>
+
             <TabControl Margin="60,20,60,20"
                     pu:TabControlHelper.ItemHeight="32"
                     pu:TabControlHelper.ItemCornerRadius="8 8 0 0"
@@ -86,6 +87,6 @@
                     </GroupBox>
                 </TabItem>
             </TabControl>
-        </ScrollViewer>
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </pu:WindowX>
