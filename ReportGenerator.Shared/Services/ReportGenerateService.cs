@@ -34,7 +34,17 @@ namespace ReportGenerator.Shared.Services
             PropertyInfo[] properties = typeof(TData).GetProperties();
             foreach(PropertyInfo propertyInfo in properties)
             {
-                _docXService.TryReplaceTokenWithText(doc,propertyInfo.Name,propertyInfo.GetValue(data) as string);
+                dynamic? content = propertyInfo.GetValue(data);
+                if(content is string dataString){
+                    _docXService.TryReplaceTokenWithText(doc,propertyInfo.Name,dataString);
+                }else if(content is DateTime dateTime)
+                {
+                    _docXService.TryReplaceTokenWithText(doc,propertyInfo.Name,dateTime.ToString("yyyy-MM-dd"));
+                }
+                else if(content is not null)
+                {
+                    _docXService.TryReplaceTokenWithText(doc,propertyInfo.Name,content.ToString());
+                }
             }
         }
 

@@ -58,8 +58,12 @@ namespace ReportGenerator.Client.Wpf.ViewModels
                         Application = Application,
                         Authorization = Authorization
                     };
-                    using DocX doc = DocX.Load("Template.docx");
+                    using Stream stream = File.OpenRead("Template.docx");
+                    using DocX doc = DocX.Load(stream);
                     _reportGenerateService.GenerateReport(doc, report, reportPath);
+                }catch(Exception err)
+                {
+                    System.Windows.MessageBox.Show(err.ToString(),"Error");
                 }
                 finally
                 { handle.Close();}
@@ -90,6 +94,8 @@ namespace ReportGenerator.Client.Wpf.ViewModels
                     };
                     using Stream stream = File.OpenWrite(exportPath);
                     await JsonSerializer.SerializeAsync(stream, report,_jsonSerializerOptions);
+                }catch(Exception err){
+                    System.Windows.MessageBox.Show(err.ToString(),"Error:");
                 }finally
                 {
                     handle.Close();

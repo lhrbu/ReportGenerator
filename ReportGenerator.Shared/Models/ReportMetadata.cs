@@ -6,7 +6,7 @@ namespace ReportGenerator.Shared.Models
     {
         public string? PDMNo { get; set; }
         public string? TestNo {get;set;}
-        public string? Name{get;set;}
+        public string? ReportName{get;set;}
         public DateTime PublishedDate { get; set; } = DateTime.Now;
     }
 }

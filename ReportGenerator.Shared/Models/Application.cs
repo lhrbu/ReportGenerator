@@ -9,7 +9,7 @@ namespace ReportGenerator.Shared.Models
         public string? TestReason {get;set;}
         public string? OEMName {get;set;}
         public string? ProjectName { get; set; }
-        public string? VehicleType { get; set; }
+        public string? VehicleModel { get; set; }
         public string? OEMPartNoSummary { get; set; }
         public string? InternalPartNoSummary { get; set; }
     }
